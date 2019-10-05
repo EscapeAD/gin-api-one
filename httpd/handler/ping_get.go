@@ -7,8 +7,8 @@ import (
 )
 
 // PingGet Request represents ping command.
-func PingGet() *gin.HandlerFunc {
-	func(c *gin.Context) {
+func PingGet() gin.HandlerFunc {
+	return func(c *gin.Context) {
 		c.JSON(http.StatusOK, map[string]string{"hello": "Found me"})
 	}
 }

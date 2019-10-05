@@ -1,19 +1,20 @@
 package main
 
 import (
+	"EscapeAD/api/httpd/handler"
 	"EscapeAD/api/platform/newsfeed"
-	"fmt"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	// r := gin.Default()
-
-	// r.GET("/ping", handler.PingGet())
-
-	// r.Run()
-
+	r := gin.Default()
 	feed := newsfeed.New()
-	fmt.Println(feed)
-	feed.Add(newsfeed.Item{"Hello", "Feed 1"})
-	fmt.Println(feed)
+
+	r.GET("/ping", handler.PingGet())
+	r.GET("/newsfeed", handler.NewsfeedGet(feed))
+	r.POST("/newsfeed", handler.NewsfeedPost(feed))
+
+	r.Run()
+
 }
