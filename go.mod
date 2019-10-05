@@ -1,4 +1,4 @@
-module "https://github.com/EscapeAD/gin-api-one"
+module EscapeAD/api
 
 go 1.12
 
