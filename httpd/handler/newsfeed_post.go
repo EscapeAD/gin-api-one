@@ -14,7 +14,7 @@ type NewsfeedPostRequest struct {
 }
 
 // NewsfeedPost Request represents Post feed command.
-func NewsfeedPost(feed *newsfeed.Repo) gin.HandlerFunc {
+func NewsfeedPost(feed newsfeed.Adder) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		requestBody := NewsfeedPostRequest{}
 		c.Bind(&requestBody)
